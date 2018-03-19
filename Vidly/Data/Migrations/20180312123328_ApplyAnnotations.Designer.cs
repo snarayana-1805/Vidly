@@ -11,9 +11,10 @@ using Vidly.Data;
 namespace Vidly.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180312123328_ApplyAnnotations")]
+    partial class ApplyAnnotations
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -182,8 +183,6 @@ namespace Vidly.Data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("Birthdate");
-
                     b.Property<bool>("IsSubsribedtoNewsLetter");
 
                     b.Property<byte>("MembershipTypeId");
@@ -206,8 +205,6 @@ namespace Vidly.Data.Migrations
                     b.Property<byte>("DiscountRate");
 
                     b.Property<byte>("DurationInMonths");
-
-                    b.Property<string>("Name");
 
                     b.Property<short>("SignUpFee");
 

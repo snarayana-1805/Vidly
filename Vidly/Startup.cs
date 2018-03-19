@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Vidly.Data;
 using Vidly.Models;
 using Vidly.Services;
+using Pomelo.EntityFrameworkCore.MySql;
 
 namespace Vidly
 {
@@ -27,7 +28,7 @@ namespace Vidly
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
