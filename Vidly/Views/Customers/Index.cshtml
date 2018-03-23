@@ -1,33 +1,22 @@
-@model IEnumerable<Customer>
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
 }
 
 <h2>Customers</h2>
-@if (!Model.Any())
-{
-    <p>We don't have any customers yet.</p>
-}
-else
-{
-<table class="table table-bordered table-hover">
+<p>
+    @Html.ActionLink("New Customer", "New", "Customers", null, new { @class = "btn btn-primary" })
+</p>
+<table id="customers" class="table table-bordered table-hover">
     <thead>
         <tr>
             <th>Customer</th>
             <th>Membership Type</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var customer in Model)
-        {
-            <tr>
-                <td>@Html.ActionLink(customer.Name, "Edit", "Customers", new { id = customer.Id }, null)</td>
-                <td>@customer.MembershipType.Name</td>
-            </tr>
-        }
     </tbody>
 </table>
-}
 
 
